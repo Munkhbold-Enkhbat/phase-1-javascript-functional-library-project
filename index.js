@@ -85,3 +85,21 @@ function myLast(arr, n) {
     return arr[arr.length-1]
   }
 }
+
+function mySortBy(data, cb) {
+  let arr = []
+  for(let i = 0; i < data.length; i++) {
+    arr.push(cb(data[i]))
+  }
+
+  for(let i = 0; i < arr.length; i++) {
+    for(let j = i; j < arr.length; j++) {
+      if(arr[i] > arr[j]) {
+        let temp = arr[i]
+        arr[i] = arr[j]
+        arr[j] = temp
+      }
+    }
+  }
+  return arr
+}
